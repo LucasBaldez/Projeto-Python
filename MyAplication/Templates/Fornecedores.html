@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fornecedores</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">Fornecedores</a>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </nav>
+
+    {% csrf_token %}
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nome do Fornecedor</th>
+            <th scope="col">Email do fornecedor</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for fornecedor in fornecedores %}
+          <tr>
+            <th scope="row">{{fornecedor.CodigoFornecedor}}</th>
+            <td>{{ fornecedor.NomeFornecedor }}</td>
+            <td>{{ fornecedor.EmailFornecedor }}</td>
+          </tr>
+          {% endfor %} 
+        </tbody>
+      </table>
+    <br>
+    <br>
+
+    
+    <a href="{%url 'Criar_fornecedor' %}" type="button" class="btn btn-primary">Cadastrar Fornecedor</a>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</body>
+</html>
