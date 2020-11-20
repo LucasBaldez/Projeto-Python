@@ -5,3 +5,4 @@ class FornecedorForm(forms.ModelForm):
     class Meta:
         model = Fornecedores
         fields = ['NomeFornecedor','EmailFornecedor']
+      
